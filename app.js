@@ -19,8 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 var api_key = '***REMOVED***';
 
 //Your domain, from the Mailgun Control Panel
-var domain = 'sandbox1194edf57e9f41ea81355f286885d8b6.mailgun.org';
-var goDomain = 'go.ffbla.com';
+var domain = 'mg.bbrcreative.com';
 
 app.set('view engine', 'jade');
 app.use(express.static(__dirname + '/dist'));
@@ -36,7 +35,7 @@ app.get('/', function(req, res) {
 // The index redirects here
 app.post('/submit', function(req,res) {
 	//Your receiving email address
-	var to_who = 'firstfederal@ffbla.com';
+	var to_who = 'hmiller@bbrcreative.com';
 	var bcc_list = '';
 
 	var type = req.body.type;
@@ -55,7 +54,8 @@ app.post('/submit', function(req,res) {
 	  'h:Reply-To': req.body.email,
 	//Subject and text data  
 	  subject: subject[type],
-	  html: 'Please send me more information about ' + inText[type] + '.\n' + '<p><a href="mailto:' + email + '">' + email + '</a></p><p>' + name + '</p>'
+	  html: 'UL TEST'
+	  //'Please send me more information about ' + inText[type] + '.\n' + '<p><a href="mailto:' + email + '">' + email + '</a></p><p>' + name + '</p>'
 	}
 
 	if(bcc_list) {
@@ -82,7 +82,7 @@ app.post('/submit', function(req,res) {
 		}
 	});
 
-	if (type === 'checking') {
+	/*if (type === 'checking') {
 		data.to = email;
 		data.subject = name + ': Your Reward Checking Bonus Code is Here';
 		data.from = '"First Federal Bank" <firstfederal@ffbla.com>';
@@ -105,8 +105,8 @@ app.post('/submit', function(req,res) {
 				console.log(body);
 			}
 		});
-	}
+	}*/
 
 });
 
-app.listen(3030);
+app.listen(3040);
