@@ -23,8 +23,7 @@
     <!-- build:js scripts/vendor/modernizr.js -->
     <!-- <script src="../bower_components/modernizr/modernizr.js"></script> -->
     <!-- endbuild -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+    <script type="text/javascript" src="../node_modules/van11y-accessible-accordion-aria/dist/van11y-accessible-accordion-aria.min.js"></script>
 </head>
 
 <body class="debug debug-grid">
@@ -32,75 +31,94 @@
         <div class="logo fl-ns w-100 h-auto mw5 mh4-ns">
             <img src="http://placehold.it/400x120" alt="UL Office of Distance Learning">
         </div>
-        <div class="phone-container fr mh4 mv3">
+        <div class="phone-container phone-desktop fr mh4 mv3">
             <a class="phone-link f2 no-underline" href="tel:5555555555">555-555-5555</a>
         </div>
     </header>
     <main class="main cf">
-        <div class="hero-container">
-            <img src="http://placehold.it/2560x800" alt="">
-            <span class="hero-headline f3 f2-ns f1-l tc">This text goes on top of the hero image</span>
+        <div class="hero-container relative w-100 h-0">
+            <picture>
+                <source class="absolute top-0 left-0 w-100 h-auto" srcset="http://placehold.it/2560x800" media="(min-width: 768px)">
+                <source class="absolute top-0 left-0 w-100 h-auto" srcset="http://placehold.it/800x400" media="(max-width: 767px)">
+                <img class="absolute top-0 left-0 w-100 h-auto" src="http://placehold.it/2560x800" alt="">
+            </picture>
+            <div class="hero-headline f3 f2-ns f1-l tc"><strong>All Within Reach.</strong><br><span class="f4 f3-ns f2-l">Your Degree. Your success. Your Potential.</span></div>
         </div>
-        <div class="body-content mt4 cf mw100 w-100">
-            <section aria-labelledby="main-headline" class="custom-headline-pos dib pa2 ml5-l mw6-l">
-                <h1 id="main-headline">UL offers online general studies degree</h1>
-                <p>Gumbo beet greens corn soko endive gumbo gourd. Parsley shallot courgette tatsoi pea sprouts fava bean collard greens dandelion okra wakame tomato. Dandelion cucumber earthnut pea peanut soko zucchini.</p>
-                <p>Nori grape silver beet broccoli kombu beet greens fava bean potato quandong celery. Bunya nuts black-eyed pea prairie turnip leek lentil turnip greens parsnip. Sea lettuce lettuce water chestnut eggplant winter purslane fennel azuki bean earthnut pea sierra leone bologi leek soko chicory celtuce parsley jÃ­cama salsify.</p>
-                <section class="accordian" role="tablist" aria-live="polite">
-                    <article>
-                        <span id="tab0" tabindex="0" class="section-title" aria-controls="panel0" role="tab">
-                            <h2>Section Heading One</h2>
-                        </span>
-                        <div class="collapsing-section" id="panel0" aria-labelledby="tab0" role="tabpanel">
-                            <p>Cred seitan artisan, anim non proident scenester ethnic leggings art party chambray dolor single-origin coffee selvage laboris. Dolor dolore et, Godard polaroid typewriter put a bird on it meggings paleo fashion axe Vice ex placeat chambray. Viral mixtape fixie, tattooed organic four loko Vice exercitation. Tonx bitters lo-fi polaroid, Tumblr seitan fap food truck selfies Etsy pariatur raw denim fixie. Beard pork belly PBR&B Portland nostrud dolor. 90's cardigan consequat, eiusmod organic nostrud lo-fi ennui. Cardigan try-hard reprehenderit, delectus aute PBR&B flexitarian mlkshk street art VHS direct trade irony.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <span id="tab1" tabindex="0" class="section-title" aria-controls="panel1" role="tab">
-                            <h2>Section Heading Two</h2>
-                        </span>
-                        <div class="collapsing-section" id="panel1" aria-labelledby="tab1" role="tabpanel">
-                            <p>Veniam quinoa ennui sriracha. Meh put a bird on it Truffaut fanny pack tempor, cupidatat direct trade bicycle rights Intelligentsia squid officia Etsy. Bespoke messenger bag veniam ex pop-up bitters. Tumblr adipisicing viral laboris sriracha actually. Cornhole keffiyeh labore, Tonx meh Helvetica XOXO. Labore mlkshk deep v twee, fanny pack est pop-up viral non slow-carb swag. Adipisicing swag bicycle rights distillery proident chambray, Helvetica Truffaut roof party leggings deep v Thundercats ea.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <span id="tab2" tabindex="0" class="section-title" aria-controls="panel2" role="tab">
-                            <h2>Section Heading Three</h2>
-                        </span>
-                        <div class="collapsing-section" id="panel2" aria-labelledby="tab2" role="tabpanel">
-                            <p>Odio distillery Bushwick fap, cliche keffiyeh viral meh sunt Helvetica duis anim ethnic adipisicing. Post-ironic brunch accusamus, freegan ullamco readymade meggings Neutra artisan hashtag cupidatat letterpress yr magna art party. Sunt farm-to-table deserunt accusamus, nihil skateboard blog American Apparel meggings master cleanse drinking vinegar ullamco. Quis pour-over nihil laboris Vice meh, labore DIY cornhole kogi. Trust fund raw denim selvage flexitarian lomo. Sapiente chambray magna kogi, typewriter Godard lo-fi PBR&B ethnic before they sold out raw denim fanny pack consectetur bitters church-key. Williamsburg Marfa YOLO, id paleo banh mi fashion axe Thundercats put a bird on it post-ironic gastropub mlkshk wayfarers.</p>
-                        </div>
-                    </article>
-                    <article>
-                        <span id="tab3" tabindex="0" class="section-title" aria-controls="panel3" role="tab">
-                            <h2>Section Heading Four</h2>
-                        </span>
-                        <div class="collapsing-section" id="panel3" aria-labeledby="tab3" role="tabpanel">
-                            <p>Mollit distillery trust fund, bitters pug twee cardigan chillwave. Bitters try-hard tempor, ad pop-up scenester in. Bitters roof party distillery typewriter trust fund Cosby sweater Pinterest occupy disrupt, put a bird on it skateboard ad tofu. Odio fap trust fund ad, put a bird on it incididunt Tonx ugh Pitchfork sartorial meggings Cosby sweater actually quis. Banksy High Life lo-fi incididunt chambray placeat, lomo in magna irure commodo. Semiotics vegan aute, cillum et raw denim asymmetrical eiusmod letterpress High Life Blue Bottle Williamsburg Tonx. Craft beer adipisicing irure, 3 wolf moon butcher selvage synth aute Wes Anderson.</p>
-                        </div>
-                    </article>
-                </section>
-            </section>
-            <form aria-labelledby="form-title" class="relative-ns fr dib mr3 pa2 custom-form-pos">
+        <div class="body-content cf mw9-l w-100 center pa3 pa4-l">
+            <form class="form relative fr-l dib-l w-100 w-30-l mw7-m mw6-l center-m pa3 bg-white" aria-labelledby="form-title">
                 <fieldset>
                     <legend id="form-title">Get your degree today!</legend>
-                    <input id="first-name" type="text" name="" class="db mt3 w-100">
-                    <label for="first-name">First Name</label>
-                    <input id="last-name" type="text" name="" class="db mt3 w-100">
-                    <label for="last-name">Last Name</label>
-                    <input id="phone" type="number" name="" class="db mt3 w-100">
-                    <label for="phone">Phone</label>
-                    <input id="email" type="email" name="" class="db mt3 w-100">
-                    <label for="email">Email</label>
+                    <div class="field-group mt3 w-100 w-50-m fl-m pr2-m">
+                        <input id="first-name" type="text" name="" class="db w-100">
+                        <label for="first-name">First Name</label>
+                    </div>
+                    <div class="field-group mt3 w-100 w-50-m fl-m pl2-m">
+                        <input id="last-name" type="text" name="" class="db w-100">
+                        <label for="last-name">Last Name</label>
+                    </div>
+                    <div class="field-group mt3 w-100 w-50-m fl-m pr2-m">
+                        <input id="phone" type="number" name="" class="db w-100">
+                        <label for="phone">Phone</label>
+                    </div>
+                    <div class="field-group mt3 w-100 w-50-m fl-m pl2-m">
+                        <input id="email" type="email" name="" class="db w-100">
+                        <label for="email">Email</label>
+                    </div>
                     <button class="button db mt3" type="submit">Submit</button>
                 </fieldset>            
             </form>
+            <section class="content dib-l w-60-l mw7-ns center-m pa2" aria-labelledby="main-headline">
+                <!--<h1 id="main-headline">UL offers online general studies degree</h1>-->
+                <p>The Online Bachelor of General Studies curriculum is designed to help you get the most out of your education at UL Lafayette—without even setting foot on campus. You can take courses in most of the University's academic departments and colleges, shaping and customizing your curriculum to fit your needs and aspirations.</p>
+                <section class="js-accordion" data-accordion-prefix-classes="ul">
+                    <h2 class="js-accordion__header" data-accordion-opened="true">Requirements</h2>
+                    <div class="js-accordion__panel">
+                        <p>To be eligible for program entry, you must:</p>
+                        <ul>
+                            <li>Have at least 45 college credit hours completed.</li>
+                            <li>
+                                Meet the minimum GPA requirements:
+                                <ul>
+                                    <li>2.0 GPA for re-entering UL Lafayette students</li>
+                                    <li>2.25 GPA for transfer students</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <h2 class="js-accordion__header">Flexibility</h2>
+                    <div class="js-accordion__panel">
+                        <p>Through our 100% online program, students have the flexibility they need to complete their bachelor's degree—on their own time and terms. Because of the freedom it offers, this program is ideal for working professionals and full-time parents. Each curriculum is completely unique and tailored to fit the student’s individual needs.</p>
+                        <p>Working with program mentors, you will have the opportunity to:</p>
+                        <ul>
+                            <li>customize your personal course path.</li>
+                            <li>take classes from a wide range of disciplines.</li>
+                            <li>complete concentrations in Arts & Humanities, Behavioral Science or Applied Sciences.</li>
+                            <li>attain education milestones that speak to your specific interests and goals.</li>
+                            <li>develop professional skills to excel in your career.</li>
+                        </ul>
+                    </div>
+                    <h2 class="js-accordion__header">Value</h2>
+                    <div class="js-accordion__panel">
+                        <p>There’s a sense of pride and accomplishment that comes with earning a college degree. We know the career opportunities a college degree creates for those who hold one. We also know that sometimes life happens.</p>
+                        <p>Plans can change, and paths will shift. That’s why our online program is here to meet you wherever you are—on your terms and at your pace. Program mentors will work with you one-on-one to ensure your degree curriculum is both personally and professionally enriching.</p>
+                    </div>
+                    <h2 class="js-accordion__header">Investment</h2>
+                    <div class="js-accordion__panel">
+                        <p>Education is one of the most important financial and personal investments you’ll make. However, time and money become obstacles for many students and often hinder the road to graduation.</p>
+                        <p>Through the online General Studies program, we aim to help minimize the effects of these obstacles. Our team of mentors works with each student to plan a path that fits their unique time and financial restraints.</p>
+                        <p>The first step to finishing your degree starts here. To request more information on the program, please complete the form provided.</p>
+                    </div>
+                </section>
+            </section>
         </div> <!-- END BODY CONTENT -->
     </main>
-    <footer class="footer ph3 ph4-ns pv5 bt b--black-10 black-70">
+    <div class="phone-container phone-mobile tc pa3">
+        <a class="phone-link f3 no-underline" href="tel:5555555555">555-555-5555</a>
+    </div>
+    <footer class="footer absolute bottom-0 right-0 left-0 h3 ph3 ph4-ns pv3 bt b--black-10 black-70">
         <div class="copyright db cf">
-            <p class="dib fl">&copy; 2017 UL Office of Distance Learning</p>
-            <p class="dib fr">Don't know what this text block will be but it's here cool</p>
+            <p class="dib fl mv2">&copy; 2017 UL Office of Distance Learning</p>
+            <p class="dib fr mv2">Don't know what this text block will be but it's here cool</p>
         </div>
     </footer>
     <!-- build:js scripts/vendor.js -->

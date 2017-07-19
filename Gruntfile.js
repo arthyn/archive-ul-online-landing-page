@@ -79,6 +79,7 @@ module.exports = function (grunt) {
                         return [
                             serveStatic('.tmp'),
                             connect().use('/bower_components', serveStatic('./bower_components')),
+                            connect().use('/node_modules', serveStatic('./node_modules')),
                             serveStatic(config.app)
                         ];
                     }

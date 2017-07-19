@@ -1,0 +1,31 @@
+.hero-container{
+	padding-bottom: 50%;
+	@media screen and (min-width: $break-sm) {
+		padding-bottom: 31.25%;
+	}
+}
+
+.hero-headline {
+	position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    left: 50%;
+}
+
+.content {
+
+}
+
+.form {
+	top: -1.5rem;
+	@media #{$breakpoint-not-small} {
+		top: -2.5rem;
+	}
+	@media #{$breakpoint-large} {
+		top: -5rem;
+	}
+}
+
+.body-content {
+	margin: auto;
+}
