@@ -5,7 +5,7 @@ var shortid = require('shortid');
 var bodyParser = require('body-parser');
 var Datastore = require('nedb')
   , db = new Datastore({ filename: 'data.db', autoload: true });
-var pug = require('pug');
+//var pug = require('pug');
 var path = require('path');
 var escape = require('lodash.escape');
 //init express
