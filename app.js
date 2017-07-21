@@ -43,18 +43,25 @@ app.post('/submit', function(req,res) {
 	//We pass the api_key and domain to the wrapper, or it won't be able to identify + send emails
 	var mailgun = new Mailgun({apiKey: api_key, domain: domain});
 	var email = escape(req.body.email);
-	var name = escape(req.body.name);
+	var firstName = escape(req.body.first_name);
+	var lastName = escape(req.body.last_name);
 	var phone = escape(req.body.phone);
+	var state = escape(req.body.state);
+	var name = firstName + ' ' + lastName;
 
 	var data = {
 	//Specify email data
 	  from: req.body.email,
 	//The email to contact
 	  to: to_who,
-	  'h:Reply-To': req.body.email,
+	  //'h:Reply-To': req.body.email,
 	//Subject and text data  
-	  subject: subject[type],
-	  html: 'UL TEST'
+	  subject: 'Landing Page Info Request from: ' + name,
+	  html: '<p>This person has requested more information about graduating online in general studies.</p>' +
+	  		'<p>Name: ' + name + '</p>' +
+	  		'<p>Email: ' + email + '</p>' +
+	  		'<p>Phone: ' + phone + '</p>' +
+	  		'<p>State: ' + state + '</p>'
 	  //'Please send me more information about ' + inText[type] + '.\n' + '<p><a href="mailto:' + email + '">' + email + '</a></p><p>' + name + '</p>'
 	}
 
@@ -70,14 +77,14 @@ app.post('/submit', function(req,res) {
 	mailgun.messages().send(data, function (err, body) {
 		//If there is an error, render the error page
 		if (err) {
-			res.render('error', { error : err});
+			res.send('error ' + err);
 			console.log("got an error: ", err);
 		}
 		//Else we can greet    and leave
 		else {
 			//Here "submitted.jade" is the view file for this landing page 
 			//We pass the variable "email" from the url parameter in an object rendered by Jade
-			res.render('submitted', { email : req.body.email });
+			res.send('submitted' + req.body.email);
 			console.log(body);
 		}
 	});

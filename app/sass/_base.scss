@@ -4,9 +4,96 @@ html {
 body {
 	position: relative;
 	margin: 0;
-	padding-bottom: 4rem;
 	min-height: 100%;
+	@media screen and (min-width: $break-sm) {
+		padding-bottom: 8rem;
+	}
 }
 h1, h2, h3, h4, h5, h6, p, ul, ol, {
 	margin-top: 0;
+}
+body, input, textarea, select, button {
+	color: $dark-gray;
+	font-size: 1rem;
+	font-family: $proxima;
+	font-weight: 300;
+}
+h1 {
+	margin-bottom: .25em;
+}
+p, ul, ol, li {
+	line-height: 1.75;
+}
+ul {
+	padding-left: 1em;
+	ul {
+		padding-left: 1em;
+	}
+}
+li {
+	list-style: none;
+	&:before {
+		content: '-';
+		float: left;
+		margin: -.55em 0 0 -.5em;
+		font-size: 2.25em;
+		font-weight: 400;
+		color: $red;
+		vertical-align: middle;
+	}
+	li {
+		&:before {
+			color: $dark-gray;
+		}
+	}
+}
+fieldset {
+	padding: 0;
+	border: none;
+}
+input,
+select {
+	padding: .5em 0;
+	border-width: 0 0 1px 0;
+	border-style: solid;
+	border-color: $silver;
+}
+select {
+	position: relative;
+	border-radius: 0;
+	background-color: transparent;
+	-webkit-appearance: none;
+}
+label {
+	position: absolute;
+	top: -1.25em;
+	left: 0;
+	input:focus + &,
+	select:focus + & {
+		color: $red;
+	}
+	.input-blank:not(:focus) + & {
+		top: .5em;
+	}
+}
+.field-group {
+	position: relative;
+	@extend .mt4;
+}
+.button {
+	padding: 1rem;
+	margin-top: 1.5rem;
+	border: none;
+	background-color: $red;
+	cursor: pointer;
+	clear: both;
+	-webkit-appearance: none;
+	transition: background-color .3s;
+	&:hover {
+		background-color: $bright-red;
+	}
+	@media #{$breakpoint-medium} {
+		margin-left: calc(50% - 8rem);
+		margin-right: calc(50% - 8rem);
+	}
 }

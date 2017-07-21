@@ -1,7 +1,12 @@
+.header {
+	background: linear-gradient(to bottom, #ffffff 0%, #e6e6e6 100%);
+}
+
 .logo {
-	@media screen and (max-width: $nav-break - 1) {
-		float: none;
-		margin: 0 auto;
+	max-width: 14rem;
+	margin: 0 1rem;
+	@media screen and (min-width: $nav-break) {
+		margin: 0 2rem;
 	}
 }
 .phone-mobile {
@@ -14,17 +19,51 @@
 		display: none;
 	}
 }
+.phone-icon {
+	width: 2.25rem;
+	height: 2.25rem;
+}
 .ul-accordion__header {
+	position: relative;
 	display: block;
 	width: 100%;
-	padding: 0;
-	margin: 0 0 1.25rem;
-	font-size: 1.5rem;
-	font-weight: 700;
+	padding: 1em;
+	margin-top: -1px;
 	text-align: left;
-	border: none;
+	border-style: solid;
+	border-color: $moon-gray;
 	background: transparent;
-	-webkit-appearance: none;	
+	-webkit-appearance: none;
+	@extend .upperboldsmall;
+	&[aria-expanded=true] {
+		border-width: 0 0 0 4px;
+		border-color: $moon-gray $moon-gray $moon-gray $red;
+		&:first-child {
+			border-width: 1px 0 0 4px;
+		}
+		.plus-icon {
+			border-color: $red;
+			&:before, &:after {
+				background-color: $red;
+			}
+			&:after {
+				transform: translate(-50%,-50%) rotate(0deg);
+			}
+		}
+	}
+	&[aria-expanded=false] {
+		border-width: 0 0 1px 4px;
+		&:first-child {
+			border-width: 1px 0 1px 4px;
+		}
+	}
+	.plus-icon {
+		position: absolute;
+		right: 1em;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: -1;
+	}
 }
 .ul-accordion__title,
 .ul-noanim-accordion__title {
@@ -39,24 +78,26 @@
 }
 .ul-accordion__panel {
     display: block;
+    padding: 0 1em 1em;
+    margin: 0;
     overflow: hidden;
     opacity: 1;
-    -webkit-transition: visibility 0s ease, max-height .3s ease-in-out, opacity .3s ease;
-    transition: visibility 0s ease, max-height .3s ease-in-out, opacity .3s ease;
+    -webkit-transition: visibility 0s ease, max-height .3s ease-in-out, opacity .3s ease, padding .3s;
+    transition: visibility 0s ease, max-height .3s ease-in-out, opacity .3s ease, padding .3s;
     max-height: 100em;
     visibility: visible;
     transition-delay: 0s;
-    margin: 0;
-    padding: 0;
+    border-width: 0 0 1px 4px;
+    border-style: solid;
+    border-color: $moon-gray $moon-gray $moon-gray $red;
     &[aria-hidden=true] {
       display: block;
       max-height: 0;
+      padding: 0 1em;
       opacity: 0;
       visibility: hidden;
       //-webkit-transition-delay: .25s, 0s, 0s;
-      //transition-delay: .25s, 0s, 0s;
-      margin: 0;
-      padding: 0;
+      transition-delay: .5s, 0s, 0s, 0s;
     }
 }
 /*.accordion {
