@@ -48,6 +48,16 @@ app.post('/submit', function(req,res) {
 	var phone = escape(req.body.phone);
 	var state = escape(req.body.state);
 	var name = firstName + ' ' + lastName;
+	var id = shortid.generate();
+	
+	db.insert({
+		_id: id,
+		firstName: firstName,
+		lastName: lastName,
+		email: email,
+		phone: phone,
+		state: state
+	});
 
 	var data = {
 	//Specify email data

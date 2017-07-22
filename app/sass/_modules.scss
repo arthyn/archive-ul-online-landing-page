@@ -5,6 +5,9 @@
 .logo {
 	max-width: 14rem;
 	margin: 0 1rem;
+	img {
+		vertical-align: middle;
+	}
 	@media screen and (min-width: $nav-break) {
 		margin: 0 2rem;
 	}
