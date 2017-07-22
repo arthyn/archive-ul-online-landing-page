@@ -12,6 +12,11 @@ body {
 h1, h2, h3, h4, h5, h6, p, ul, ol, {
 	margin-top: 0;
 }
+.wf-loading  {
+	h1,h2,h3,h4,h5,h6,p,ul,li,a,legend,label,span {
+		visibility: hidden;
+	}
+}
 body, input, textarea, select, button {
 	color: $dark-gray;
 	font-size: 1rem;
@@ -74,6 +79,11 @@ label {
 	}
 	.input-blank:not(:focus) + & {
 		top: .5em;
+	}
+	@media #{$breakpoint-medium} {
+		.pl2-m & {
+			left: .5rem;
+		}
 	}
 }
 .field-group {
