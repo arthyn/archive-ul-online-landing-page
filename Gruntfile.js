@@ -149,11 +149,7 @@ module.exports = function (grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         sass: {
             options: {
-                loadPath: [
-                    'bower_components/bourbon/app/assets/stylesheets/',
-                    'bower_components/jeet/scss/jeet/',
-                    'bower_components/font-awesome/scss/'
-                ]
+                loadPath: []
             },
             dist: {
                 files: [{
@@ -178,7 +174,7 @@ module.exports = function (grunt) {
         // Add vendor prefixed styles
         autoprefixer: {
             options: {
-                browsers: ['last 1 version']
+                browsers: ['last 5 versions', 'ff >= 4', 'ie >= 9', 'Safari >= 5']
             },
             dist: {
                 files: [{
@@ -187,6 +183,25 @@ module.exports = function (grunt) {
                     src: '{,*/}*.css',
                     dest: '.tmp/styles/'
                 }]
+            }
+        },
+
+        uncss: {
+            dist: {
+                options: {
+                    csspath: '../.tmp/concat',
+                    htmlroot: '<%= config.app %>',
+                    ignore: [   /\.ul-accordion.*/,
+                                '.loader', 
+                                '.input-blank:not(:focus) label'
+                            ],
+                    ignoreSheets : [/use\.typekit/],
+                    stylesheets: ['styles/main.css'],
+                    timeout: 3000
+                },
+                files: {
+                    '.tmp/concat/styles/main.css': ['<%= config.app %>/index.html']
+                }
             }
         },
 
@@ -404,10 +419,28 @@ module.exports = function (grunt) {
         'concurrent:dist',
         'autoprefixer',
         'concat',
+        'uncss',
         'cssmin',
         'uglify',
         'copy:dist',
-        'modernizr',
+        //'modernizr',
+        //'rev',
+        'usemin',
+        'htmlmin'
+    ]);
+
+    grunt.registerTask('build-no-image', [
+        'clean:distimage',
+        'useminPrepare',
+        'sass',
+        'copy:styles',
+        'autoprefixer',
+        'concat',
+        'uncss',
+        'cssmin',
+        'uglify',
+        'copy:dist',
+        //'modernizr',
         //'rev',
         'usemin',
         'htmlmin'
