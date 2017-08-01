@@ -37,7 +37,7 @@
 		submit.innerHTML = '<div class="loader">Loading...</div>';
 		ajaxPost(elements, signup.action, function(){
 			if(this.status === 200) {
-				signup.innerHTML = '<p>Thank you for signing up. Our representatives will get back with you shortly.</p>';
+				signup.innerHTML = '<p>Thank you for completing the form. One of our enrollment counselors will contact you soon.</p>';
 				window.dataLayer = window.dataLayer || [];
 				 window.dataLayer.push({
 				   'event' : 'formSubmissionSuccess',
