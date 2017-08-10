@@ -88,5 +88,6 @@
 	domReady(function() {
 		attachFormSubmit();
 		checkInputs();
+		validate.init();
 	});
 })(document, window)
