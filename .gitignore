@@ -4,3 +4,4 @@ dist/
 .tmp/
 tmp/
 data.db
+.DS_Store
