@@ -35,7 +35,7 @@ app.get('/', function(req, res) {
 // The index redirects here
 app.post('/submit', function(req,res) {
 	//Your receiving email address
-	var to_who = 'hmiller@bbrcreative.com';
+	var to_who = 'online@louisiana.edu';
 	var bcc_list = '';
 
 	var type = req.body.type;
@@ -98,31 +98,6 @@ app.post('/submit', function(req,res) {
 			console.log(body);
 		}
 	});
-
-	/*if (type === 'checking') {
-		data.to = email;
-		data.subject = name + ': Your Reward Checking Bonus Code is Here';
-		data.from = '"First Federal Bank" <firstfederal@ffbla.com>';
-		data['h:Reply-To'] = 'firstfederal@ffbla.com';
-		console.log()
-		data.html = '<div style="display:none;font-size:1px;color:#333333;line-height:1px;max-height:0px;max-width:0px;opacity:0;overflow:hidden;">Get ready to get rewarded</div><p>You’re one step closer to checking that’s really rewarding. Bring this code to any First Federal Bank and, after registering your new VISA Bonus Check card at UChooseRewards.com, you’ll receive 500 free* points as our way of saying thanks.</p><p><h2 style="font-size:24px;color: #0d5fb6;margin-bottom:.5em;">Your Bonus Code:</h2><h2 style="font-size:24px;color:#0d5fb6;margin:.5em 0 .5em 0;">FFB500</h2></p><p><strong>Simply bring this code to your <a href="http://ffbla.com/locations.aspx">nearest branch</a> and...</strong></p><ol><li>Open any new First Federal checking account</li><li>Register your VISA Bonus Check card at <a href="https://UChooseRewards.com">UChooseRewards.com</a></li><li>Start earning points with every purchase</li></ol><br><br><p>*Offer ends July 31, 2017. Bonus points will only added to any newly opened First Federal checking account once VISA Bonus Check card is registered at <a href="https://www.uchooserewards.com">UChooseRewards.com</a></p>';
-
-		
-		mailgun = new Mailgun({apiKey: api_key, domain: goDomain});
-
-		mailgun.messages().send(data, function (err, body) {
-			//If there is an error, render the error page
-			if (err) {
-				console.log("got an error: ", err);
-			}
-			//Else we can greet    and leave
-			else {
-				//Here "submitted.jade" is the view file for this landing page 
-				//We pass the variable "email" from the url parameter in an object rendered by Jade
-				console.log(body);
-			}
-		});
-	}*/
 
 });
 

@@ -37,11 +37,15 @@
 		submit.innerHTML = '<div class="loader">Loading...</div>';
 		ajaxPost(elements, signup.action, function(){
 			if(this.status === 200) {
-				signup.innerHTML = '<p>Thank you for signing up. Our representatives will get back with you shortly.</p>';
+				signup.innerHTML = '<p>Thank you for completing the form. One of our enrollment counselors will contact you soon.</p>';
+				var state = elements.filter(function (element) {
+					return element.id.indexOf('state-select') > -1;
+				});
 				window.dataLayer = window.dataLayer || [];
 				 window.dataLayer.push({
 				   'event' : 'formSubmissionSuccess',
-				   'formId' : 'contactForm'
+				   'formId' : 'contactForm',
+				   'state' : state
 				 });
 			} else if(this.status !== 200) {
 				signup.innerHTML = '<p>Your submission was unable to be submitted. Please try again later.</p>';
