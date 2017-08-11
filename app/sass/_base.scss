@@ -63,11 +63,31 @@ select {
 	border-style: solid;
 	border-color: $silver;
 }
+
+input[type="phone"] {
+	-webkit-appearance: none;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+input[type=number] {
+    -moz-appearance:textfield;
+  }
+
 select {
 	position: relative;
 	border-radius: 0;
 	background-color: transparent;
 	-webkit-appearance: none;
+	-moz-appearance: none;
+
+		&::-ms-expand {
+	    display: none;
+	}
 }
 label {
 	position: absolute;
@@ -106,4 +126,12 @@ label {
 		margin-left: calc(50% - 8rem);
 		margin-right: calc(50% - 8rem);
 	}
+}
+
+.header {
+	background-color: #0f1e40;
+}
+
+.red-link {
+	color: #9e0f15;
 }
