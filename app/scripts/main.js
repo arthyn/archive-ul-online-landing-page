@@ -47,6 +47,7 @@
 				   'formId' : 'contactForm',
 				   'state' : state
 				 });
+				console.log(window.dataLayer);
 			} else if(this.status !== 200) {
 				signup.innerHTML = '<p>Your submission was unable to be submitted. Please try again later.</p>';
 			}
