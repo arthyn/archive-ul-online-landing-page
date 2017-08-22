@@ -45,7 +45,7 @@
 				 window.dataLayer.push({
 				   'event' : 'formSubmissionSuccess',
 				   'formId' : 'contactForm',
-				   'state' : state
+				   'state' : state.textContent
 				 });
 				console.log(window.dataLayer);
 			} else if(this.status !== 200) {
