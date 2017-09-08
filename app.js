@@ -13,6 +13,10 @@ var app = express();
 var debug = process.argv[2];
 debug = debug == '-d';
 
+if(debug) {
+	console.log('Running in debug mode...');
+}
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //Your api key, from Mailgun’s Control Panel
@@ -47,6 +51,7 @@ app.post('/submit', function(req,res) {
 	var lastName = escape(req.body.last_name);
 	var phone = escape(req.body.phone);
 	var state = escape(req.body.state);
+	var source = escape(req.body.source);
 	var name = firstName + ' ' + lastName;
 	var id = shortid.generate();
 	
@@ -56,7 +61,8 @@ app.post('/submit', function(req,res) {
 		lastName: lastName,
 		email: email,
 		phone: phone,
-		state: state
+		state: state,
+		source: source
 	});
 
 	var data = {
@@ -71,7 +77,8 @@ app.post('/submit', function(req,res) {
 	  		'<p>Name: ' + name + '</p>' +
 	  		'<p>Email: ' + email + '</p>' +
 	  		'<p>Phone: ' + phone + '</p>' +
-	  		'<p>State: ' + state + '</p>'
+	  		'<p>State: ' + state + '</p>' +
+	  		'<p>Source: ' + source + '</p>'
 	  //'Please send me more information about ' + inText[type] + '.\n' + '<p><a href="mailto:' + email + '">' + email + '</a></p><p>' + name + '</p>'
 	}
 

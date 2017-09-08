@@ -3,6 +3,16 @@
 	    document.readyState === "interactive" || document.readyState === "complete" ? callback() : document.addEventListener("DOMContentLoaded", callback);
 	};
 
+	function getParameterByName(name, url) {
+	    if (!url) url = window.location.href;
+	    name = name.replace(/[\[\]]/g, "\\$&");
+	    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+	        results = regex.exec(url);
+	    if (!results) return null;
+	    if (!results[2]) return '';
+	    return decodeURIComponent(results[2].replace(/\+/g, " "));
+	}
+
 	function ajaxPost (elements, action, callback) {
 	    var url = action,
 	        xhr = new XMLHttpRequest();
@@ -90,7 +100,17 @@
 		signup.addEventListener('submit', submitForm, false);
 	}
 
+	function captureSource() {
+		var source = getParameterByName('utm_medium');
+		var sourceInput = document.querySelector('#source');
+
+		if(source) {
+			sourceInput.value = source;
+		}
+	}
+
 	domReady(function() {
+		captureSource();
 		attachFormSubmit();
 		checkInputs();
 		validate.init();
