@@ -15,21 +15,21 @@
 
 	function ajaxPost (elements, action, callback) {
 	    var url = action,
-	        xhr = new XMLHttpRequest();
+			xhr = new XMLHttpRequest(),
+			data = {};
 
-	    var params = elements.map(function(el) {
-	        //Map each field into a name=value string, make sure to properly escape!
-	        return encodeURIComponent(el.name) + '=' + encodeURIComponent(el.value);
-	    }).join('&'); //Then join all the strings by &
+	    elements.forEach(function(el) {
+			data[el.name] = el.value;
+	    });
 
 	    xhr.open("POST", url);
-	    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	    xhr.setRequestHeader("Content-type", "application/json");
 
 	    //.bind ensures that this inside of the function is the XHR object.
 	    xhr.onload = callback.bind(xhr); 
 
 	    //All preperations are clear, send the request!
-	    xhr.send(params);
+	    xhr.send(JSON.stringify(data));
 	}
 
 	function submitForm(e) {
