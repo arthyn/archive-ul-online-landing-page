@@ -2,7 +2,7 @@ if (process.env.NODE_ENV !== 'production') {
 	require('dotenv').load();
 }
 
-const mailjet = require('mailgun-js');
+const mailjet = require('node-mailjet').connect(process.env.MAILJET_API, process.env.MAILJET_SECRET);
 const escape = require('lodash.escape');
 
 let debug = process.argv[2];
@@ -12,7 +12,7 @@ if(debug) {
 	console.log('Running in debug mode...');
 }
 
-exports.handler = async function(event, context, callback) {
+exports.handler = async function(event, context) {
     const body = JSON.parse(event.body);
 	var email = escape(body.email);
 	var firstName = escape(body.first_name);
@@ -38,18 +38,20 @@ exports.handler = async function(event, context, callback) {
                 ]
             });
 
-        if (response.Messages[0].Status === 'error') {
-            throw new Error(response.Messages[0].Errors.map(error => error.ErrorMessage).join());
+        const responseData = response.body;
+        console.log(responseData);
+        if (responseData.Messages[0].Status === 'error') {
+            throw new Error(responseData.Messages[0].Errors.map(error => error.ErrorMessage).join());
         }
         
-        callback(null, {
+        return {
             statusCode: 200,
             body: 'success'
-        })
+        };
     } catch (error) {
-        callback(null, {
+        return {
             statusCode: 500,
             body: error
-        })
+        };
     }
 }
