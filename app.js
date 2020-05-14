@@ -1,3 +1,6 @@
+if (process.env.NODE_ENV !== 'production') {
+	require('dotenv').load();
+}
 //We're using the express framework and the mailgun-js wrapper
 var express = require('express');
 var Mailgun = require('mailgun-js');
@@ -20,7 +23,7 @@ if(debug) {
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //Your api key, from Mailgun’s Control Panel
-var api_key = '***REMOVED***';
+var api_key = process.env.MAILGUN;
 
 //Your domain, from the Mailgun Control Panel
 var domain = 'mg.bbrcreative.com';

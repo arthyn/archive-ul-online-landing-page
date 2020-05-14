@@ -1,5 +1,5 @@
 'use strict';
-
+const sass = require("node-sass");
 
 module.exports = function (grunt) {
 
@@ -78,7 +78,6 @@ module.exports = function (grunt) {
                     middleware: function(connect) {
                         return [
                             serveStatic('.tmp'),
-                            connect().use('/bower_components', serveStatic('./bower_components')),
                             connect().use('/node_modules', serveStatic('./node_modules')),
                             serveStatic(config.app)
                         ];
@@ -93,7 +92,6 @@ module.exports = function (grunt) {
                         return [
                             connect.static('.tmp'),
                             connect.static('test'),
-                            connect().use('/bower_components', connect.static('./bower_components')),
                             connect.static(config.app)
                         ];
                     }
@@ -149,6 +147,7 @@ module.exports = function (grunt) {
         // Compiles Sass to CSS and generates necessary files if requested
         sass: {
             options: {
+                implementation: sass,
                 loadPath: []
             },
             dist: {
